@@ -8,11 +8,14 @@ let savedPrompts = [];
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM loaded, initializing app...');
   
-  // Initialize the Block SDK - this needs to happen first to correctly load saved data
+  // Set block editor width to 600px if BlockSDK is available
   if (window.sfdc && window.sfdc.BlockSDK) {
-    console.log('SFMC environment detected, initializing BlockSDK');
     sdk = new window.sfdc.BlockSDK();
-    
+    if (sdk.setBlockEditorWidth) {
+      sdk.setBlockEditorWidth(600, function() {
+        console.log('Block editor width set to 600px');
+      });
+    }
     // Initialize with saved data from BlockSDK
     initializeWithSavedData();
   } else {
