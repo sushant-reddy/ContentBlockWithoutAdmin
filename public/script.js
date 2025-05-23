@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.sfdc && window.sfdc.BlockSDK) {
     sdk = new window.sfdc.BlockSDK();
     if (sdk.setBlockEditorWidth) {
-      sdk.setBlockEditorWidth(600, function() {
-        console.log('Block editor width set to 600px');
+      sdk.setBlockEditorWidth(850, function() {
+        console.log('Block editor width set to 850px');
       });
     }
     // Initialize with saved data from BlockSDK
